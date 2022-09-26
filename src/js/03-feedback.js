@@ -19,7 +19,11 @@ function onFormInput(e) {
 function onFormSubmit(e) {
   e.preventDefault();
 
-  console.log(load(FORM_KEY));
+  if (!formFeedback['email'].value || !formFeedback['message'].value) {
+    alert('Please fill in all fields of the form');
+    return;
+  }
+  console.log(formData);
   e.currentTarget.reset();
   localStorage.removeItem(FORM_KEY);
   formData = {};
